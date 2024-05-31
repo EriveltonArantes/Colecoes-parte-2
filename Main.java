@@ -1,69 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Program {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        int totalHomens = 0;
-        int totalMulheres = 0;
-
-        while (true) {
-            System.out.print("Digite o nome da pessoa (ou 'sair' para encerrar): ");
-            String nome = scanner.nextLine();
-
-            if (nome.equalsIgnoreCase("sair") || nome.equalsIgnoreCase("s")) {
-                break;
-            }
-
-            System.out.print("Digite o sexo da pessoa (M/F): ");
-            char sexo = scanner.next().charAt(0);
-            scanner.nextLine(); // Consumir a quebra de linha após a leitura do sexo
-
-            if (sexo == 'M' || sexo == 'm') {
-                totalHomens++;
-            } else if (sexo == 'F' || sexo == 'f') {
-                totalMulheres++;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Quantos nomes deseja informar? ");
+        int quantity = sc.nextInt();
+        sc.nextLine();
+        List<String> maleList = new ArrayList<>();
+        List<String> femaleList = new ArrayList<>();
+        for (int i = 0; i < quantity; i++) {
+            System.out.print("Informe o " + (i + 1) + "° nome: ");
+            String name = sc.nextLine();
+            System.out.print("Esta pessoa é do sexo <F>eminino ou <M>asculino? ");
+            String gender = sc.nextLine();
+            if ("F".equalsIgnoreCase(gender)) {
+                femaleList.add(name);
+            } else if ("M".equalsIgnoreCase(gender)) {
+                maleList.add(name);
             } else {
-                System.out.println("Sexo inválido! Digite M para masculino ou F para feminino.");
+                System.out.println("Não identifiquei o sexo informado, esta pessoa não será registrada");
             }
         }
 
-        System.out.println("Total de homens: " + totalHomens);
-        System.out.println("Total de mulheres: " + totalMulheres);
+        System.out.println("Lista das mulheres: " + String.join(", ", femaleList));
+        System.out.println("Lista dos homens: " + String.join(", ", maleList));
+
+        sc.close();
     }
 }
-
-
-
-
-
-// import java.util.Scanner;
-
-// public class Main {
-
-//     public static void main(String[] args) {
-//         Scanner scanner = new Scanner(System.in);
-
-//         int totalHomens;
-//         int totalMulheres;
-
-//         while (true) {
-//             System.out.println("Digite seu nome: ");
-//             String name = scanner.nextLine();
-
-//             System.out.println("Digite seu sexo: ");
-//             String sexo = scanner.nextLine();
-//             if (totalHomens == homem) {
-//                 totalHomens++;
-//                 totalHomens.equals.ignorecase("Homem"); || totalMulheres.ignorecase("h")
-
-//                 } else if (totalMulheres == mulher) {
-//                     totalMulheres.ignorecase("mulher") || totalMulheres.ignorecase("m")
-//             }
-//             System.out.println("Adicionar mais nomes? ");
-//             String resposta = scanner.nextLine();
-
-//         }
-
-
-// }
